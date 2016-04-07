@@ -27,8 +27,8 @@ $(function() {
          */
         it('have non-empty URLs', function() {
             for (var i=0; i < allFeeds.length; i++) {
-                expect(allFeeds[0].url).toBeDefined();
-                expect(allFeeds[0].url.length).not.toBe(0);
+                expect(allFeeds[i].url).toBeDefined();
+                expect(allFeeds[i].url.length).not.toBe(0);
             }
         });
 
@@ -39,8 +39,8 @@ $(function() {
          */
         it('have non-empty Names', function() {
             for (var i=0; i < allFeeds.length; i++) {
-                expect(allFeeds[0].name).toBeDefined();
-                expect(allFeeds[0].name.length).not.toBe(0);
+                expect(allFeeds[i].name).toBeDefined();
+                expect(allFeeds[i].name.length).not.toBe(0);
             }
         });
 
@@ -99,13 +99,13 @@ $(function() {
 
         beforeEach(function(done) {
             loadFeed(0, function() {
-                contentOne = $('.header-title').html();
+                contentOne = $('.feed').html();
                 loadFeed(1, done);
             });
         });
 
         it('has new content', function(done) {
-            contentTwo = $('.header-title').html();
+            contentTwo = $('.feed').html();
             expect(contentOne).not.toBe(contentTwo);
             done();
         });
